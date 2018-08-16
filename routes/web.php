@@ -18,3 +18,9 @@ $router->get('/', function () use ($router) {
 $router->get('/repas', function () use ($router) {
     return 'ok';
 });
+
+$router->get('/personnes',  'PersonneController@index');
+
+//$router->get('foo', 'Photos\AdminController@method');
+
+$router->get('/personnes/{id}',  'PersonneController@show');
