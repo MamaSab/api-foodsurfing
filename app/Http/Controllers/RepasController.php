@@ -18,4 +18,10 @@ class RepasController extends Controller
         return $results;
     }
 
+    public function store()
+    {
+        $results = app('db')->select("INSERT INTO repas (plat, nombre_minimum_personne, nombre_maximum_personne, date, lieux , idt) VALUES('paella', 4, 8, '2018-08-11 15:00:00', 'saint-brieuc', 1)");
+        return $results;
+    }
+
 }

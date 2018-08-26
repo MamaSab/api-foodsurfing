@@ -15,9 +15,6 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/repas', function () use ($router) {
-    return 'ok';
-});
 
 $router->get('/personnes',  'PersonneController@index');
 
@@ -27,4 +24,9 @@ $router->get('/personnes/{id}',  'PersonneController@show');
 
 $router->get('/repas',  'RepasController@index');
 
+$router->post('/repas', 'RepasController@store');
+
 $router->get('/themes', 'ThemesController@index');
+
+
+
