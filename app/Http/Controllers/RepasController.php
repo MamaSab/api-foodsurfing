@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 
 class RepasController extends Controller
@@ -24,8 +24,11 @@ class RepasController extends Controller
     {
         $repas = $request->input('toto');
         $nom = $repas['nom'];
-        $results = app('db')->select("INSERT INTO repas (plat, nombre_minimum_personne, nombre_maximum_personne, date, lieux , idt) VALUES('$nom', 4, 8, '2018-08-11 15:00:00', 'saint-brieuc', 1)");
-        return $results;
+        $personne = $request->get('personne');
+        $theme = $request->get('theme');
+        $results = DB::insert('
+        INSERT INTO repas (personnes_idPersonnes, themes_idthemes) VALUES('.$personne.','. $theme.')');
+        return response('Hello World', 200);
     }
 
 }
