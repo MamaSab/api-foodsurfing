@@ -29,7 +29,7 @@ class RepasController extends Controller
         $personne = $request->get('personne');
         $theme = $request->get('theme');
         $results = DB::insert('
-        INSERT INTO repas (personnes_idPersonnes, themes_idthemes, plat) VALUES('.$personne.','. $theme.', "'.$input["plat"].'")');
+        INSERT INTO repas (personnes_idPersonnes, themes_idthemes, plat, description, lieu, dateRepas, nombre_minimum_personne, nombre_maximum_personne) VALUES('.$personne.','. $theme.', "'.$input["plat"].'","'.$input["description"].'","'.$input["lieu"].'","'.$input['date'].'","'.$input['min'].'","'.$input['max'].'")');
         return response('Hello World', 200);
     }
 
