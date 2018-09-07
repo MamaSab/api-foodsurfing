@@ -22,12 +22,14 @@ class RepasController extends Controller
 
     public function store(Request $request)
     {
-        $repas = $request->input('toto');
-        $nom = $repas['nom'];
+        $input = $request->all();
+
+        // $repas = $request->input('toto');
+        
         $personne = $request->get('personne');
         $theme = $request->get('theme');
         $results = DB::insert('
-        INSERT INTO repas (personnes_idPersonnes, themes_idthemes) VALUES('.$personne.','. $theme.')');
+        INSERT INTO repas (personnes_idPersonnes, themes_idthemes, plat) VALUES('.$personne.','. $theme.', "'.$input["plat"].'")');
         return response('Hello World', 200);
     }
 
