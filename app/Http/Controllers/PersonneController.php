@@ -14,13 +14,13 @@ class PersonneController extends Controller
      */
     public function index()
     {
-        $results = app('db')->select("SELECT * FROM personne");
+        $results = app('db')->select("SELECT * FROM personnes");
         return $results;
     }
 
     public function show($id)
     {
-        $results = app('db')->select("SELECT * FROM personne where id = " . $id);
+        $results = app('db')->select("SELECT * FROM personnes where id = " . $id);
         return $results;
     }
 }
