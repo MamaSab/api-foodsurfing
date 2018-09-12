@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 class LoginController extends Controller
 {
-    /**
-     * Create a new controller instance.
+ /**
+     * Retrieve the user for the given ID.
      *
-     * @return void
+     * @param  int  $id
+     * @return Response
      */
-    public function __construct()
+    public function index()
     {
         $results = app('db')->select("SELECT * FROM personnes");
         return $results;
