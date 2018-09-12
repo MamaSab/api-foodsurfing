@@ -18,9 +18,9 @@ class PersonneController extends Controller
         return $results;
     }
 
-    public function show($id)
-    {
-        $results = app('db')->select("SELECT * FROM personnes where id = " . $id);
-        return $results;
-    }
+    // public function show($id)
+    // {
+    //     $results = app('db')->select("SELECT * FROM personnes where id = " . $id);
+    //     return $results;
+    // }
 }
