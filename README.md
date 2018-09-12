@@ -1,4 +1,15 @@
-Si je change mon read me
+# api-foodsurfing
 
+> Laravel Lumen Framework Project
 
-Une autre ligne de test
+## Build Setup
+
+``` bash
+# Clone project from github
+git clone https://github.com/MamaSab/api-foodsurfing.git
+
+# install vendor dependencies
+composer install
+
+# Launch php standalone serveur
+php -S localhost:8000 -t public
