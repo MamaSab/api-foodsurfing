@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Response;
+
 class LoginController extends Controller
 {
- /**
-     * Retrieve the user for the given ID.
+    /**
+     * Retrieve all users
      *
-     * @param  int  $id
      * @return Response
      */
     public function index()
     {
         $results = app('db')->select("SELECT * FROM personnes");
-        return $results;
+        return response($results);
     }
 
     //
