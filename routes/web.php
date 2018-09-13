@@ -28,6 +28,6 @@ $router->post('/repas', 'RepasController@store');
 
 $router->get('/themes', 'ThemesController@index');
 
-$router->post('/login', 'LoginController@index');
+$router->post('/login', 'LoginController@login');
 
-
+$router->get('/login', 'LoginController@index');

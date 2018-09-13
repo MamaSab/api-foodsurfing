@@ -24,13 +24,13 @@ class RepasController extends Controller
     {
         $input = $request->all();
 
-        // $repas = $request->input('toto');
+        $repas = $request->input('toto');
         
         $personne = $request->get('personne');
         $theme = $request->get('theme');
         $results = DB::insert('
         INSERT INTO repas (personnes_idPersonnes, themes_idthemes, plat, description, lieu, dateRepas, nombre_minimum_personne, nombre_maximum_personne) VALUES('.$personne.','. $theme.', "'.$input["plat"].'","'.$input["description"].'","'.$input["lieu"].'","'.$input['date'].'","'.$input['min'].'","'.$input['max'].'")');
-        return response('Hello World', 200);
+        return response('Repas créer', 200);
     }
 
 }
