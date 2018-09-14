@@ -16,9 +16,20 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $input = $request->all();
-        $results = app('db')->select("SELECT nom, mot_de_passe FROM personnes WHERE nom = 'nono' ");
-        return response($results);
+        $nom = $request->input('nom');
+        $mot_de_passe = $request->input('mot_de_passe');
+        if (is_null($nom) || is_null($mot_de_passe)) {
+            return response('Données manquantes');
+        }
+        $results = app('db')->select("SELECT nom, mot_de_passe FROM personnes WHERE nom = '$nom' AND mot_de_passe = '$mot_de_passe' ");
+            if (empty($results)) {
+                return response("k.o");
+            }   
+            else {
+                return response("ok");
+            }
+        
+        
     }
 
 
