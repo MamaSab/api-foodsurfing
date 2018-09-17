@@ -21,12 +21,12 @@ class LoginController extends Controller
         if (is_null($nom) || is_null($mot_de_passe)) {
             return response('Données manquantes');
         }
-        $results = app('db')->select("SELECT nom, mot_de_passe FROM personnes WHERE nom = '$nom' AND mot_de_passe = '$mot_de_passe' ");
+        $results = app('db')->select("SELECT idPersonnes, nom, prenom, ville, age  FROM personnes WHERE nom = '$nom' AND mot_de_passe = '$mot_de_passe' ");
             if (empty($results)) {
-                return response("k.o");
+                return response(null);
             }   
             else {
-                return response("ok");
+                return response($results);
             }
         
         
