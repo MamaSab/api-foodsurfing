@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use Illuminate\Http\Request;
 
 class PersonneController extends Controller
 {
@@ -15,6 +15,12 @@ class PersonneController extends Controller
     public function index()
     {
         $results = app('db')->select("SELECT * FROM personnes");
+        return $results;
+    }
+
+    public function repas(Request $request, $id)
+    {
+        $results = app('db')->select("SELECT * FROM repas WHERE personnes_idPersonnes = " . $id . " AND dateRepas >= '" . $request->input('date') . "'");
         return $results;
     }
 

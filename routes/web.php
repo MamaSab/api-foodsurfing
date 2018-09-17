@@ -21,6 +21,7 @@ $router->get('/personnes/',  'PersonneController@index');
 //$router->get('foo', 'Photos\AdminController@method');
 
 $router->get('/personnes/{id}/',  'PersonneController@show');
+$router->get('/personnes/{id}/repas', 'PersonneController@repas');
 
 $router->get('/repas',  'RepasController@index');
 
