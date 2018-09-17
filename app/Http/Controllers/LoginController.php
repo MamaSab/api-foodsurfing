@@ -23,7 +23,7 @@ class LoginController extends Controller
         }
         $results = app('db')->select("SELECT idPersonnes, nom, prenom, ville, age  FROM personnes WHERE nom = '$nom' AND mot_de_passe = '$mot_de_passe' ");
             if (empty($results)) {
-                return response(null);
+                return response('erreur');
             }   
             else {
                 return response($results);
