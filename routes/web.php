@@ -26,6 +26,7 @@ $router->get('/personnes/{id}/repas', 'PersonneController@repas');
 $router->get('/repas',  'RepasController@index');
 
 $router->post('/repas', 'RepasController@store');
+$router->put('/repas/{id}', 'RepasController@update');
 
 $router->get('/themes', 'ThemesController@index');
 

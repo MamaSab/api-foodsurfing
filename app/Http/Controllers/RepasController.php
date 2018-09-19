@@ -33,4 +33,11 @@ class RepasController extends Controller
         return response('Repas créer', 200);
     }
 
+    public function update(Request $request, $id)
+    {
+        $input = $request->all();
+
+    $results = DB::update('UPDATE repas SET plat = "' . $input['plat'] . '" WHERE idrepas = ' . $id);
+    }
+
 }
