@@ -27,6 +27,8 @@ $router->get('/repas',  'RepasController@index');
 
 $router->post('/repas', 'RepasController@store');
 $router->put('/repas/{id}', 'RepasController@update');
+$router->delete('/repas/{id}', 'RepasController@delete');
+
 
 $router->get('/themes', 'ThemesController@index');
 

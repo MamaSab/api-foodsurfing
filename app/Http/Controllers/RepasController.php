@@ -37,7 +37,14 @@ class RepasController extends Controller
     {
         $input = $request->all();
 
-    $results = DB::update('UPDATE repas SET plat = "' . $input['plat'] . '" WHERE idrepas = ' . $id);
+    $results = DB::update('UPDATE repas SET themes_idthemes = "'.$input["theme"].'" , plat = "' . $input['plat'] . '", description = "' . $input["description"].'" , lieu = "'. $input["lieu"] .'" , dateRepas = "'.$input['date'].'", nombre_minimum_personne = "' .$input['min'] . '" , nombre_maximum_personne = "' .$input['max'] . '"  WHERE idrepas = ' . $id);
+        // return response('lieu modifié', 200);
+}
+
+public function delete(Request $request, $id)
+    {
+        $results = DB::delete('DELETE FROM repas WHERE idrepas = ' . $id);
+        return response ('repas effacer de la table');
     }
 
 }
