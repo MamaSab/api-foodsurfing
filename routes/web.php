@@ -15,16 +15,12 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-
-$router->get('/personnes/',  'PersonneController@index');
-
 //$router->get('foo', 'Photos\AdminController@method');
-
+$router->get('/personnes/',  'PersonneController@index');
 $router->get('/personnes/{id}/',  'PersonneController@show');
 $router->get('/personnes/{id}/repas', 'PersonneController@repas');
 
 $router->get('/repas',  'RepasController@index');
-
 $router->post('/repas', 'RepasController@store');
 $router->put('/repas/{id}', 'RepasController@update');
 $router->delete('/repas/{id}', 'RepasController@delete');
@@ -33,5 +29,6 @@ $router->delete('/repas/{id}', 'RepasController@delete');
 $router->get('/themes', 'ThemesController@index');
 
 $router->post('/login', 'LoginController@login');
-
 $router->get('/login', 'LoginController@index');
+
+$router->get('/ajout', 'AjoutController@index');

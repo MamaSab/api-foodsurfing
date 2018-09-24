@@ -44,7 +44,7 @@ class RepasController extends Controller
 public function delete(Request $request, $id)
     {
         $results = DB::delete('DELETE FROM repas WHERE idrepas = ' . $id);
-        dd($result);
+        
         return response ('repas effacer de la table');
     }
 
