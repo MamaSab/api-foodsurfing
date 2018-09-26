@@ -52,4 +52,10 @@ class PersonneController extends Controller
     //     $results = app('db')->select("SELECT * FROM personnes where id = " . $id);
     //     return $results;
     // }
+
+    public function autre(Request $request, $id)
+    {
+        $results = app('db')->select("SELECT * FROM repas WHERE personnes_idPersonnes != " . $id );
+        return $results;
+    }
 }

@@ -19,6 +19,7 @@ $router->get('/', function () use ($router) {
 $router->get('/personnes/',  'PersonneController@index');
 $router->get('/personnes/{id}/',  'PersonneController@show');
 $router->get('/personnes/{id}/repas', 'PersonneController@repas');
+$router->get('/personnes/{id}/autre', 'PersonneController@autre') ;
 
 $router->get('/repas',  'RepasController@index');
 $router->post('/repas', 'RepasController@store');
