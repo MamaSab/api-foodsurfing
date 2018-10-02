@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+//pour se connecter à la DataBase
 class PersonneController extends Controller
 {
     /**
@@ -57,5 +59,14 @@ class PersonneController extends Controller
     {
         $results = app('db')->select("SELECT * FROM repas WHERE personnes_idPersonnes != " . $id );
         return $results;
+    }
+
+    public function store (Request $request)
+     {
+        $input = $request->all();
+        $results = DB::insert('
+        INSERT INTO personnes (nom, prenom, mot_de_passe, ville, age) VALUES ("'.$input["nom"].'","'.$input["prenom"].'", "'.$input["mot_de_passe"].'","'.$input["ville"].'","'.$input["age"].'")');
+        return response('Repas créer', 200);
+
     }
 }
