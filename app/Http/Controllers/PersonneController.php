@@ -57,16 +57,30 @@ class PersonneController extends Controller
 
     public function autre(Request $request, $id)
     {
-        $results = app('db')->select("SELECT * FROM repas WHERE personnes_idPersonnes != " . $id );
+        $results = app('db')->select("SELECT `idrepas`,`plat`,`nombre_minimum_personne`,`nombre_maximum_personne`,`dateRepas`,`lieu`,`description`,`personnes_idPersonnes`,`themes_idthemes`,
+        themes.nomTheme as nt , personnes.nom as np  FROM repas 
+        INNER JOIN themes ON repas.themes_idthemes = themes.idthemes
+        INNER JOIN personnes ON repas.personnes_idPersonnes = personnes.idPersonnes WHERE personnes_idPersonnes != " . $id );
         return $results;
     }
+
+    public function participe(Request $request, $id)
+    {
+        $results = app('db')->select("SELECT `repas_idrepas`,`ajout_idajout`,`dateAjout`, repas.dateRepas as dr, repas.plat as plat, repasajout.personnes_idPersonnes as idp, ajout.nomAjout as na, personnes.prenom as pp, personnes.nom as pn
+        FROM `repasajout`
+        INNER JOIN repas ON repasajout.repas_idrepas=repas.idrepas
+        INNER JOIN ajout ON repasajout.ajout_idajout=ajout.idajout
+        INNER JOIN personnes ON repas.personnes_idPersonnes=personnes.idPersonnes");
+        return $results;
+    }
+
 
     public function store (Request $request)
      {
         $input = $request->all();
         $results = DB::insert('
-        INSERT INTO personnes (nom, prenom, mot_de_passe, ville, age) VALUES ("'.$input["nom"].'","'.$input["prenom"].'", "'.$input["mot_de_passe"].'","'.$input["ville"].'","'.$input["age"].'")');
-        return response('Repas créer', 200);
+        INSERT INTO personnes (nom, prenom, mot_de_passe, ville, age) VALUES ("'.$input["nom2"].'","'.$input["prenom"].'", "'.$input["mot_de_passe"].'","'.$input["ville"].'","'.$input["age"].'")');
+        return response('Compte créer', 200);
 
     }
 }

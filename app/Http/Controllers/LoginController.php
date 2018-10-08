@@ -35,11 +35,11 @@ class LoginController extends Controller
 
     public function index(Request $request)
     {
-      
-        $results = app('db')->select("SELECT * FROM personnes WHERE nom = 'nono' ");
+        $nom = $request->input('nom');
+        $results = app('db')->select("SELECT * FROM personnes WHERE nom = '$nom' ");
         return response($results);
     }
-
+    
 
     
 

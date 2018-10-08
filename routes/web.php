@@ -20,6 +20,7 @@ $router->get('/personnes/',  'PersonneController@index');
 $router->get('/personnes/{id}/',  'PersonneController@show');
 $router->get('/personnes/{id}/repas', 'PersonneController@repas');
 $router->get('/personnes/{id}/autre', 'PersonneController@autre');
+$router->get('/personnes/{id}/participe', 'PersonneController@participe');
 $router->post('personne/', 'PersonneController@store');
 
 $router->get('/repas',  'RepasController@index');
@@ -33,4 +34,8 @@ $router->get('/themes', 'ThemesController@index');
 $router->post('/login', 'LoginController@login');
 $router->get('/login', 'LoginController@index');
 
+$router->post('/register', 'RegisterController@index');
+
+
 $router->get('/ajout', 'AjoutController@index');
+$router->post('ajout', 'AjoutController@store');
