@@ -29,7 +29,10 @@ class RepasController extends Controller
         // $personne = $request->get('personnes');
         // $theme = $request->get('theme');
         $results = DB::insert('
-        INSERT INTO repas (personnes_idPersonnes, themes_idthemes, plat, description, lieu, dateRepas, nombre_minimum_personne, nombre_maximum_personne) VALUES ("'.$input["personne"].'","'.$input["theme"].'", "'.$input["plat"].'","'.$input["description"].'","'.$input["lieu"].'","'.$input['date'].'","'.$input['min'].'","'.$input['max'].'")');
+        INSERT INTO repas (personnes_idPersonnes, themes_idthemes, plat, description, lieu,
+        dateRepas, nombre_minimum_personne, nombre_maximum_personne)
+        VALUES ("'.$input["personne"].'","'.$input["theme"].'", "'.$input["plat"].'","'.$input["description"].'",
+        "'.$input["lieu"].'","'.$input['date'].'","'.$input['min'].'","'.$input['max'].'")');
         return response('Repas créer', 200);
     }
 
@@ -37,11 +40,13 @@ class RepasController extends Controller
     {
         $input = $request->all();
 
-    $results = DB::update('UPDATE repas SET themes_idthemes = "'.$input["theme"].'" , plat = "' . $input['plat'] . '", description = "' . $input["description"].'" , lieu = "'. $input["lieu"] .'" , dateRepas = "'.$input['date'].'", nombre_minimum_personne = "' .$input['min'] . '" , nombre_maximum_personne = "' .$input['max'] . '"  WHERE idrepas = ' . $id);
+    $results = DB::update('UPDATE repas SET themes_idthemes = "'.$input["theme"].'" , plat = "' . $input['plat'] . '",
+    description = "' . $input["description"].'" , lieu = "'. $input["lieu"] .'" , dateRepas = "'.$input['date'].'", 
+    nombre_minimum_personne = "' .$input['min'] . '" , nombre_maximum_personne = "' .$input['max'] . '"  WHERE idrepas = ' . $id);
         // return response('lieu modifié', 200);
-}
+    }
 
-public function delete(Request $request, $id)
+    public function delete(Request $request, $id)
     {
         $results = DB::delete('DELETE FROM repas WHERE idrepas = ' . $id);
         
